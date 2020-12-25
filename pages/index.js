@@ -3,6 +3,7 @@ import { builder, BuilderComponent } from '@builder.io/react'
 
 const BUILDER_API_KEY = process.env.BUILDER_API_KEY;
 builder.init(BUILDER_API_KEY);
+builder.trackConversion();
 
 export const getServerSideProps = async ({res, req, asPath}) => {
   const response = await builder.get('page', { req, res, url: asPath  }).promise();
